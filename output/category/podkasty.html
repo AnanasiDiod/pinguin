@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <style>
+            nav {
+                background-color:  red;
+            }
+            header {
+                background-color: yellow;
+            }
+            article {
+                background-color: purple;
+            }
+            main {
+                background-color: blue;
+            }
+            .sidebar {
+                background-color: green;
+                width: 20%;
+            }
+            article {
+                width: 80%;
+                margin: 20px;
+            }
+            nav > ul {
+                display: flex;
+                justify-content: space-around;
+            }
+            ul > li {
+                list-style-type: none;
+            }
+            main {
+                display: flex;
+            }
+            body {
+                width: 80%;
+                margin: auto;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <header>
+            <h1>Название сайта</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/category/novosti.html">Новости</a></li>
+                <li><a href="/category/podkasty.html">Подкасты</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class='sidebar'>
+    <ul>
+        <li><a href="/first-post.html">Статья 1</a></li>
+        <li><a href="/third-post.html">Статья 3</a></li>
+    </ul>
+            </div>
+            <article>
+        <p><p>Pelican – быстрый и простой в использовании генератор статических сайтов с CLI. В стандартный дистрибутив входят две темы оформления. Эта тема называется simple.</p></p>
+            </article>
+        </main>
+        <footer>
+        </footer>
+    </body>
+</html>

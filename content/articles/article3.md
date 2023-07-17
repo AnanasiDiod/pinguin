@@ -1,4 +1,4 @@
-Title: Статья 3
+Title: Ссылки с примерами оформления
 Date: 2022-03-15 10:20
 Category: Подкасты
 Slug: third-post

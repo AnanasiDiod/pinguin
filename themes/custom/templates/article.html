@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 {% block sidebar %}
-    <ul>     
-        {% for cat, articles in categories %}
+<ul>
+    {% for cat, articles in categories %}
 
-        {% if cat == category %}
-            {% for article_ in articles %}
-            <li><a href="/{{article_.url}}">{{article_.title}}</a></li>
-            {% endfor %}
-        {% endif %}
+    {% if cat == category %}
+    {% for article_ in articles %}
+    <li><a href="/{{article_.url}}">{{article_.title}}</a></li>
+    {% endfor %}
+    {% endif %}
 
-        {% endfor %}
-    </ul>
+    {% endfor %}
+</ul>
 
 {% endblock sidebar %}
 
 {% block article %}
- <p>{{article.content}}</p>
+<p>{{article.content}}</p>
 {% endblock article %}

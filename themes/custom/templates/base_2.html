@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
+    {% block head %}
+    {% endblock head %}
 
     <style>
         html * {
@@ -41,14 +43,6 @@
             background-color: white;
         }
 
-        .sidebar {
-            /* background-color: green; */
-            background-color: white;
-            font-size: 120%;
-            font-weight: bold;
-            width: 20%;
-        }
-
         nav>ul {
             display: flex;
             justify-content: space-around;
@@ -72,29 +66,14 @@
             text-decoration: none;
         }
 
+
         .sidebar {
-            font-size: 15px;
-            border: 3px solid rgb(240, 240, 240);
-            height: fit-content;
+            /* background-color: green; */
+            background-color: white;
+            font-size: 120%;
+            font-weight: bold;
+            width: 20%;
             margin: 10px;
-        }
-
-        .sidebar ul {
-            padding: 10px 10px;
-            margin: 0px 0px;
-        }
-
-        .sidebar a {
-            width: 100%;
-            height: max-content;
-            float: left;
-            color: #0069b5;
-            border-bottom: 1px solid rgb(240, 240, 240);
-            padding: 7px 0px 6px;
-        }
-
-        .sidebar a:hover {
-            text-decoration: underline;
         }
     </style>
 
@@ -107,22 +86,24 @@
         <nav>
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="/category/novosti.html">Новости</a></li>
-                <li><a href="/category/podkasty.html">Подкасты</a></li>
+                {% for category, articles in categories %}
+                {% if category != 'Главная'%}
+                <li><a href="/{{category.url}}">{{category}}</a></li>
+                {% endif %}
+                {% endfor %}
             </ul>
         </nav>
     </header>
     <main>
         <div class='sidebar'>
-    <ul>
-        <li><a href="/first-post.html">Подкаст о птицах</a></li>
-        <li><a href="/third-post.html">Ссылки с примерами оформления</a></li>
-    </ul>
+            {% block sidebar %}
+
+            {% endblock sidebar%}
         </div>
         <article>
-        <p><p><font size = 5><strong>Пример статьи</strong></font><br>
-Британские учёные вяснили причину перелёта птиц на юг.</p>
-<p><a href="/4th_article.html">a link relative to the content root</a></p></p>
+            {% block article %}
+
+            {% endblock article %}
         </article>
     </main>
     <footer>

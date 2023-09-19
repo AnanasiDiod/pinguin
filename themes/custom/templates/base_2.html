@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    {% block head %}
+    {% endblock head %}
+
+    <style>
+        html * {
+            font-family: Arial;
+        }
+
+        nav {
+            /* background-color: red; */
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            border-bottom: 2px solid #0069b5;
+            padding: 5px 0px;
+            font-style: normal;
+        }
+
+        header {
+            /* background-color: yellow; */
+            background-color: #0069b5;
+            color: white;
+            font-size: 28px;
+            font-style: italic;
+        }
+
+        article {
+            /* background-color: purple; */
+            background-color: white;
+            color: black;
+            width: 80%;
+            margin: 0px 20px;
+        }
+
+        main {
+            /* background-color: blue; */
+            background-color: white;
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        ul>li {
+            list-style-type: none;
+        }
+
+        main {
+            display: flex;
+        }
+
+        body {
+            width: 80%;
+            margin: auto;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+
+        .sidebar {
+            /* background-color: green; */
+            background-color: white;
+            font-size: 120%;
+            font-weight: bold;
+            width: 20%;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Кафедра информатики и вычислительной математики</h1>
+
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                {% for category, articles in categories %}
+                {% if category != 'Главная'%}
+                <li><a href="/{{category.url}}">{{category}}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class='sidebar'>
+            {% block sidebar %}
+
+            {% endblock sidebar%}
+        </div>
+        <article>
+            {% block article %}
+
+            {% endblock article %}
+        </article>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>
